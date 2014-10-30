@@ -1,0 +1,32 @@
+# User specific aliases and functions
+alias la='ls -lah'
+alias VL='xrandr --output VGA1 --auto --left-of LVDS1'
+alias LV='xrandr --output VGA1 --auto --right-of LVDS1'
+alias djrun='source env/bin/activate; python webapp/manage.py runserver'
+alias act='source env/bin/activate'
+alias commit='git commit -am'
+alias rm='echo BAD IDEA! Use del \(d\), or full path name for rm'
+function wcpdf() { pdftotext "$@" - | wc -w ;} # wordcount a pdf
+function del { mv $@ /tmp/; }
+alias d='del'
+alias bd=". bd -s"
+alias p="pcmanfm &"
+alias nb="ipython notebook --pylab=inline"
+function ding() { aplay ~/.ding.wav & }
+
+alias wtfmyip='lynx --dump http://ipecho.net/plain'
+
+# bash use vim bindings
+set -o vi
+
+# Turn on 256 color support...
+if [ "x$TERM" = "xxterm" ]
+then
+    export TERM="xterm-256color"
+fi
+
+# jumping
+source ~/.lib/z/z.sh
+
+# db - change directory to folder along the current path
+source ~/.lib/bd/bd

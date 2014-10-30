@@ -1,4 +1,196 @@
-syntax on
+"Pathogen
+call pathogen#infect()
+call pathogen#helptags()
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+filetype plugin indent on
+
+" Enable syntax highlighting
+syntax enable
+
+" MiniBufExplorer play nice
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+
+" NerdThree config
+let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\.bak$', '\~$']
+let NERDTreeShowBookmarks=1
+let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bzr']
+let NERDTreeQuitOnOpen=0
+let NERDTreeKeepTreeInNewTab=1
+let g:nerdtree_tabs_open_on_gui_startup=0
+let NERDTreeMouseMode=2
+
+" Omnicompletion functions
+set ofu=syntaxcomplete#Complete
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+au FileType py set expandtab
+au FileType py set foldmethod=indent
+
+" Code folding
+set foldmethod=syntax
+set foldcolumn=1     " the number of columns to use for folding display at the left
+
+" toggle folding with space-bar
+nnoremap <Space> za
+vnoremap <Space> za
+
+" latex stuff
+let g:tex_flavor='latex'
+" indentation for tex files
+au FileType tex set sw=2
+" Spell check
+au FileType tex setlocal spell spelllang=en_gb
+" Vim-latex rules:
+" to enable \ll to run automatically for pdfs
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_MultipleCompileFormats='dvi,pdf'
+
+" keyboard shortcuts
+if has("mac")
+else
+  map <F2> :NERDTreeToggle<CR>
+  map <F4> :noh<CR>
+endif
+
+" All the little things
+set ls=2            " always show status line
+set sm              " show matching braces
+set hlsearch
+set showmatch
+set incsearch
+set ignorecase
+set nowrap
+set autoindent
+set history=1000
+set cursorline
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" moving around, tabs, windows and buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+"map <space> /
+"map <c-space> ?
+
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+imap <C-j> <C-W>j
+
+" Close the current buffer
+map <leader>bd :Bclose<cr>
+
+" Close all the buffers
+map <leader>ba :1,1000 bd!<cr>
+
+" Useful mappings for managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+
+" Opens a new tab with the current buffer's path
+" Super useful when editing files in the same directory
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
+" Switch CWD to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" Specify the behavior when switching between buffers
+try
+  set switchbuf=useopen,usetab,newtab
+  set stal=2
+catch
+endtry
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
+
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+" Always show the status line
+set laststatus=2
+
+" Format the status line
+"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Editing mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Remap VIM 0 to first non-blank character
+map 0 ^
+
+" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
+nmap <M-j> mz:m+<cr>`z
+nmap <M-k> mz:m-2<cr>`z
+vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+
+if has("mac") || has("macunix")
+  nmap <D-j> <M-j>
+  nmap <D-k> <M-k>
+  vmap <D-j> <M-j>
+  vmap <D-k> <M-k>
+endif
+
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
+
+"autocmd BufWriteCmd *.html,*.css,*.gtpli,*.php,*.less :call Refresh_firefox()
+function! Refresh_firefox()
+    if &modified
+        write
+        silent !echo  'vimYo = content.window.pageYOffset;
+                    \ vimXo = content.window.pageXOffset;
+                    \ BrowserReload();
+                    \ content.window.scrollTo(vimXo,vimYo);
+                    \ repl.quit();'  |
+                    \ nc -w 1 localhost 4242 2>&1 > /dev/null
+    endif
+endfunction
+
+" Less.css syntax
+au BufNewFile,BufRead *.less set filetype=less
+
+" Solarized
+set background=dark
+"colorscheme solarized
+
+colorscheme Monokai
+let g:molokai_original = 1
+
+iab improt import
+iab laod load

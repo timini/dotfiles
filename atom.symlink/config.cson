@@ -1,34 +1,14 @@
-'editor':
-  'showIndentGuide': true
-  'fontFamily': 'Menlo'
-  'fontSize': 15
-  'invisibles': {}
-'core':
-  'ignoredNames': [
-    '.bundle'
-    '.git'
-    'log'
-    'repositories'
-    'tmp'
-    'vendor'
-  ]
-  'themes': [
-    'unity-ui'
-    'glacier-syntax'
-  ]
-  'hideGitIgnoredFiles': true
-  'disabledPackages': [
-    'background-tips'
-    'exception-reporting'
-    'metrics'
-  ]
-'spell-check':
-  'grammars': [
-    'text.plain'
-    'source.gfm'
-    'text.git-commit'
-  ]
+'exception-reporting':
+  'userId': '47dc3de2-7062-e1f1-6798-383ca48daae3'
 'welcome':
   'showOnStartup': false
-'release-notes':
-  'viewedVersion': '0.89.0'
+'metrics':
+  'userId': '99b0acd5b52b8a69511727d23804bbd005d2a153'
+'core':
+  'themes': [
+    'atom-dark-ui'
+    'monokai'
+  ]
+'editor':
+  'fontFamily': 'ANDALE MONO'
+  'fontSize': 13

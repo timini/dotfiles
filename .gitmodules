@@ -1,0 +1,12 @@
+[submodule "zsh/oh-my-zsh.simlink"]
+	path = zsh/oh-my-zsh.simlink
+	url = git://github.com/robbyrussell/oh-my-zsh.git
+[submodule "zsh/lib.symlink/z"]
+	path = zsh/lib.symlink/z
+	url = https://github.com/rupa/z.git
+[submodule "zsh/lib.symlink/bd"]
+	path = zsh/lib.symlink/bd
+	url = https://github.com/Tarrasch/zsh-bd.git
+[submodule "zsh/lib.symlink/zshmarks"]
+	path = zsh/lib.symlink/zshmarks
+	url = git://github.com/jocelynmallon/zshmarks.git
