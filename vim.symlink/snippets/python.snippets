@@ -1,0 +1,58 @@
+snippet main
+	if __name__ == '__main__':
+		${1:pass}
+snippet for
+	for ${1:item} in ${2:collection}:
+		${3:pass}
+snippet from
+	from ${1:module} import ${2:name}
+snippet def
+	def ${1:name}(${2:}):
+		${3:pass}
+snippet try
+	try:
+		${1:pass}
+	except${2}:
+		${3:pass}
+snippet with
+	with ${1}:
+		${2:pass}
+snippet imp
+	import ${1}
+snippet import 
+	import ${1}
+snippet class
+	class ${1:Name}(${2:object}):
+		${3:pass}
+snippet clas
+	class ${1:Name}(${2:object}):
+		${3:pass}
+snippet init
+	def __init__(self${1}):
+		${2:pass}
+snippet :par
+	:param ${1:arg}: ${2}
+snippet :ret
+	:returns: ${1:val}
+snippet get
+	@property
+	def ${1:name}(self):
+		${2:pass}
+snippet getset
+	@property
+	def ${1:name}(self):
+		${2:pass}
+
+	@$1.setter
+	def $1(self, val):
+		${3:pass}
+snippet #!
+	#!/usr/bin/env python${1}
+	${2}
+snippet #-
+	#------------------------------------------------------------------------------
+	${1}
+snippet """
+	"""${1}"""
+snippet ipdb
+	import ipdb; ipdb.set_trace()

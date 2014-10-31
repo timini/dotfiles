@@ -1,11 +1,39 @@
-"Pathogen
-call pathogen#infect()
-call pathogen#helptags()
+"---------------------------------------------------------------
+" file: ~/.vimrc
+" author: Tim Rich
+" vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=vim:
+"---------------------------------------------------------------
 
+set nocompatible " don't maintain vi compatability
+
+" init vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" bundles
+Bundle 'gmarik/vundle'
+
+Bundle 'fholgado/minibufexpl.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'paredit.vim'
+Bundle 'ervandew/supertab'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle "tomtom/tlib_vim"
+Bundle 'garbas/vim-snipmate'
+Bundle "honza/vim-snippets"
+Bundle 'kien/ctrlp.vim'
+Bundle 'tomasr/molokai'
+
+" core settings
+syntax on
 filetype plugin indent on
-
-" Enable syntax highlighting
-syntax enable
+set wrap
+set encoding=utf-8
+set number
+set mouse=a
+set t_Co=256
+colorscheme Molokai
 
 " MiniBufExplorer play nice
 let g:miniBufExplMapWindowNavVim = 1

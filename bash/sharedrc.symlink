@@ -29,4 +29,4 @@ fi
 source ~/.lib/z/z.sh
 
 # db - change directory to folder along the current path
-source ~/.lib/bd/bd
+# source ~/.lib/bd/bd.zsh
