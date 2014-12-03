@@ -33,7 +33,6 @@ set encoding=utf-8
 set number
 set mouse=a
 set t_Co=256
-colorscheme Molokai
 
 " MiniBufExplorer play nice
 let g:miniBufExplMapWindowNavVim = 1
