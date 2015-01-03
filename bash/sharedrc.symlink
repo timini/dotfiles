@@ -25,8 +25,4 @@ then
     export TERM="xterm-256color"
 fi
 
-# jumping
 source ~/.lib/z/z.sh
-
-# db - change directory to folder along the current path
-# source ~/.lib/bd/bd.zsh

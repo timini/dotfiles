@@ -24,6 +24,7 @@ Bundle 'garbas/vim-snipmate'
 Bundle "honza/vim-snippets"
 Bundle 'kien/ctrlp.vim'
 Bundle 'tomasr/molokai'
+Bundle 'mustache/vim-mustache-handlebars'
 
 " core settings
 syntax on

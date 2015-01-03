@@ -11,5 +11,3 @@ source $HOME/.sharedrc
 # bash use vim bindings
 set -o vi
 
-# bashmarks
-#source ~/.local/bin/bashmarks.sh
