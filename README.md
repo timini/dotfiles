@@ -21,8 +21,11 @@ Run this:
 ```sh
 git clone https://github.com/holman/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
+git submodule update --init --recursive
 script/bootstrap
 ```
+
+Then open vim and use the command `:PluginInstall` to install all the vim plugins using vundle.
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
 Everything is configured and tweaked within `~/.dotfiles`.
