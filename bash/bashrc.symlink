@@ -11,3 +11,4 @@ source $HOME/.sharedrc
 # bash use vim bindings
 set -o vi
 
+source /usr/local/bin/virtualenvwrapper.sh
