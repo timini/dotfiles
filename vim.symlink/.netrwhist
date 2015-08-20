@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/tim/Workspace/repositive/repositive-services/repositive/backend'
+let g:netrw_dirhist_2='/Users/tim/Workspace/repositive/repositive-services/.git'
+let g:netrw_dirhist_3='/Users/tim/Workspace/repositive/repositive-static/assets'
+let g:netrw_dirhist_4='/Users/tim/Workspace/repositive/api.repositive.io/.git/modules'
+let g:netrw_dirhist_5='/Users/tim/.ssh'
+let g:netrw_dirhist_6='/Users/tim/Workspace/repositive/repositive-static/dist'
+let g:netrw_dirhist_7='/Users/tim/Workspace'
+let g:netrw_dirhist_8='/Users/tim/.dotfiles/.git'

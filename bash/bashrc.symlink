@@ -6,6 +6,7 @@
 #fi
 
 # User specific aliases and functions
+echo 'hilo'
 source $HOME/.sharedrc
 
 # bash use vim bindings

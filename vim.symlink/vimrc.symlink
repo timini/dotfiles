@@ -4,6 +4,7 @@
 " vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=vim:
 "---------------------------------------------------------------
 
+set shell=bash
 set nocompatible " don't maintain vi compatability
 
 " init vundle
@@ -25,6 +26,10 @@ Bundle "honza/vim-snippets"
 Bundle 'kien/ctrlp.vim'
 Bundle 'tomasr/molokai'
 Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'isRuslan/vim-es6'
+Bundle 'https://github.com/elzr/vim-json'
+Bundle 'kylef/apiblueprint.vim'
+Bundle 'kennethzfeng/vim-raml'
 
 " core settings
 syntax on
@@ -34,6 +39,11 @@ set encoding=utf-8
 set number
 set mouse=a
 set t_Co=256
+
+" white space prefs by filetype
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype html.handlebars setlocal ts=2 sts=2 sw=2
 
 " MiniBufExplorer play nice
 let g:miniBufExplMapWindowNavVim = 1
@@ -222,3 +232,10 @@ let g:molokai_original = 1
 
 iab improt import
 iab laod load
+
+" show whitespace
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬

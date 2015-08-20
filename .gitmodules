@@ -10,6 +10,9 @@
 [submodule "zsh/lib.symlink/zshmarks"]
 	path = zsh/lib.symlink/zshmarks
 	url = git://github.com/jocelynmallon/zshmarks.git
-[submodule "vim.symlink/bundle/vundle"]
-	path = vim.symlink/bundle/vundle
+[submodule "vim.symlink/bundle/Vundle.vim"]
+	path = vim.symlink/bundle/Vundle.vim
+	url = https://github.com/gmarik/vundle.git
+[submodule "nvim.symlink/bundle/Vundle.vim"]
+	path = nvim.symlink/bundle/Vundle.vim
 	url = https://github.com/gmarik/vundle.git

@@ -11,10 +11,12 @@ function del { mv $@ /tmp/; }
 alias d='del'
 alias bd=". bd -s"
 alias p="pcmanfm &"
-alias nb="ipython notebook --pylab=inline"
+alias nb="ipython notebook"
+json='| python -m json.tool'
 function ding() { aplay ~/.ding.wav & }
 
 alias wtfmyip='lynx --dump http://ipecho.net/plain'
+function ip() { ifconfig eth0 | grep inet | awk '{ print $2 }' }
 
 # bash use vim bindings
 set -o vi
@@ -26,3 +28,21 @@ then
 fi
 
 source ~/.lib/z/z.sh
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+# Setting up the VirtualEnv
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+ 
+if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+else
+    echo "WARNING: Can't find virtualenvwrapper.sh"
+fi
+
+gofwd() { git checkout `git rev-list --topo-order HEAD.."$*" | tail -1` }

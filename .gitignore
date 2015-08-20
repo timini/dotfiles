@@ -7,4 +7,8 @@ atom.symlink/themes
 
 #git/gitconfig.symlink
 
-vim.symlink/bundle/
+vim.symlink/bundle/*
+!vim.symlink/bundle/Vundle.vim
+
+nvim.symlink/bundle/*
+!nvim.symlink/bundle/Vundle.vim
